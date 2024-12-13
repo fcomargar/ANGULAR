@@ -1,0 +1,34 @@
+<!-- Mensaje de prueba para verificar que la función 'add-character' funciona -->
+<p>add-character works!</p>
+
+<!-- Título para la sección de agregar personajes -->
+<h4>Agregar personaje</h4>
+
+<!-- Formulario para añadir un personaje nuevo. 
+  Se activa cuando el usuario envía el formulario con el botón "Agregar". 
+  El evento 'ngSubmit' ejecuta la función emitCharacter(). -->
+<form class="row" (ngSubmit)="emitCharacter()">
+
+  <!-- Campo de texto para ingresar el nombre del personaje. 
+    [(ngModel)] enlaza este campo con la propiedad 'character.name' en el archivo TypeScript.
+    El atributo 'name' se utiliza para identificar este campo en el formulario. -->
+  <input type="text"
+  [(ngModel)]="character.name"
+  name="name"
+  class="form-control mb-2"
+  placeholder="Nombre">
+
+  <!-- Campo numérico para ingresar el poder del personaje. 
+    También está enlazado a la propiedad 'character.power' con [(ngModel)]. -->
+  <input type="number"
+  [(ngModel)]="character.power"
+  name="power"
+  class="form-control mb-2"
+  placeholder="Poder">
+
+  <!-- Botón para enviar el formulario y agregar el personaje. 
+    El evento 'click' también llama a la función emitCharacter(), aunque esto es redundante. -->
+  <button type="submit" class="btn btn-primary" (click)="emitCharacter()">
+    Agregar
+  </button>
+</form>

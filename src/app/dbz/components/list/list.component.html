@@ -1,0 +1,40 @@
+<!-- Mensaje para verificar que la lista funciona -->
+<p>list works!</p>
+
+<!-- Título de la sección -->
+<h4>Listado</h4>
+
+<!-- Lista no ordenada para mostrar los personajes -->
+<ul class="list-group">
+
+  <!-- Bucle que recorre 'characterList' usando *ngFor -->
+  <li *ngFor="
+    let character of characterList;  // Cada elemento se llama 'character'
+    let i = index;        // Índice actual del elemento
+    let isFirst = first;  // ¿Es el primer elemento?
+    let isLast = last;    // ¿Es el último elemento?
+    let isEven = even;    // ¿Es un índice par?
+    let isOdd = odd;      // ¿Es un índice impar?
+    "
+    class="list-group-item d-flex justify-content-between align-items-center"
+    
+    <!-- Aplicamos clases según la posición del elemento en la lista -->
+
+    [ngClass]="{
+      'list-group-item-dark': isLast,   // Si es el último, se pone oscuro
+      'list-group-item-primary': isEven  // Si es par, se pone azul
+    }">
+
+    <!-- Mostramos los detalles del personaje -->
+    <div>
+      <span class="text-primary">{{i+1}}</span>  <!-- Índice (empezando desde 1) -->
+      <span>{{ character.name}} - </span>       <!-- Nombre del personaje -->
+      <strong>Power: </strong>                  
+      <span>{{character.power}}</span>          <!-- Poder del personaje -->
+    </div>
+
+    <!-- Botón para eliminar el personaje. Llama a la función onDeleteCharacter(i) -->
+    <button class="btn btn-danger" (click)="onDeteteCharacter(i)">X</button>
+
+  </li>
+</ul>

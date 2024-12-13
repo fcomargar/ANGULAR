@@ -1,0 +1,31 @@
+<!-- Título principal de la aplicación -->
+<h1>DBZ Personajes</h1>
+<hr>
+
+<!-- Contenedor principal con dos columnas -->
+<div class="row">
+
+  <!-- Primera columna: lista de personajes -->
+  <div class="col">
+
+    <!-- Componente de lista de personajes -->
+    <!-- Le pasamos la lista de personajes mediante [characterList]="characters" -->
+    <!-- Escuchamos el evento 'onDelete' y llamamos a la función onDeleteCharacter($event) -->
+    <app-list 
+      [characterList]="characters" 
+      (onDelete)="onDeleteCharacter($event)">
+    </app-list>
+
+  </div>
+
+  <!-- Segunda columna: formulario para agregar personajes -->
+  <div class="col">
+
+    <!-- Componente para agregar personajes -->
+    <!-- Escuchamos el evento 'onNewCharacter' y llamamos a la función onNewCharacter($event) -->
+    <app-add-character 
+      (onNewCharacter)="onNewCharacter($event)">
+    </app-add-character>
+
+  </div>
+</div>
